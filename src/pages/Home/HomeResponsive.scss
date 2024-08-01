@@ -1,0 +1,1127 @@
+@import "../../assets/styles/variables";
+
+@media screen and (max-width: $breakpointDesktopLarge) {
+  .productcategories {
+    margin-bottom: 60px;
+    &_container {
+      .row {
+        .col {
+          overflow-x: auto !important;
+          .productcategories-item {
+            height: 248px;
+          }
+        }
+      }
+    }
+  }
+
+  .productlist {
+    &_container {
+      .row {
+        &:last-child {
+          .productlist_item {
+            .thumbnail {
+              height: 348px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .productlistFlashsale {
+    &_container {
+      .row {
+        &:last-child {
+          .navtab_content {
+            .tab {
+              .cardItem {
+                .thumbnail {
+                  height: 348px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .thirdBanner {
+    height: 194px;
+  }
+}
+
+@media screen and (max-width: $breakpointDesktop) {
+  .mainBanner {
+    height: 467px;
+  }
+
+  .productlist {
+    &_container {
+      .row {
+        &:last-child {
+          .productlist_item {
+            .thumbnail {
+              height: 362.67px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .productlistFlashsale {
+    &_container {
+      .row {
+        &:last-child {
+          .navtab_content {
+            .tab {
+              gap: 24px7;
+              .cardItem {
+                width: 300px;
+                .thumbnail {
+                  height: 400px !important;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .thirdBanner {
+    height: 177px;
+
+    .content {
+      p {
+        font-size: 34px;
+      }
+      button {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .feedback {
+    &_container {
+      .row {
+        .col {
+          .swiper .swiper-wrapper .swiper-slide {
+            .feedback_left {
+              height: 660px;
+              .image_wrapper {
+                &-top {
+                  top: 10%;
+                  left: 10%;
+                  .title {
+                    span {
+                      font-size: 29px;
+                    }
+                  }
+                }
+                &-bottom {
+                  p {
+                    font-size: 31px;
+                  }
+                }
+              }
+            }
+
+            .feedback_right {
+              p {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .aboutus {
+    &_container {
+      .row {
+        .aboutus_content {
+          .title {
+            font-size: $fontSizeBody !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpointTabletLarge) {
+  .couponbanner {
+    margin-bottom: 60px;
+  }
+
+  .productlist {
+    &_container {
+      .row {
+        &:last-child {
+          .productlist_item {
+            gap: 12px;
+            .thumbnail {
+              height: 289.33px !important;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .productlistFlashsale {
+    &_container {
+      .row {
+        &:last-child {
+          .navtab_content {
+            .tab {
+              gap: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mainBanner {
+    height: 396px;
+    margin-bottom: 25px;
+  }
+
+  .policies {
+    margin-bottom: 25px;
+    .policies_container {
+      .row {
+        .col {
+          grid-template-columns: repeat(2, 1fr);
+          grid-template-rows: repeat(2, 1fr);
+          .policies-item {
+            .policies-info {
+              p {
+                font-size: $fontSizeBody;
+              }
+
+              span {
+                font-size: $fontSizeCaption;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .coupon {
+    &_container {
+      .row {
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+      }
+    }
+  }
+
+  .productlistFlashsale {
+    &_container {
+      .row {
+        &:first-child {
+          .col {
+            .heading {
+              span {
+                font-size: $fontSizeHeading;
+              }
+            }
+
+            .countdown {
+              &_title {
+                display: none;
+              }
+            }
+          }
+        }
+
+        &:last-child {
+          .navtab_heading {
+            .custom-nav {
+              width: 100%;
+              display: flex;
+              flex-wrap: nowrap;
+              scrollbar-width: none;
+              overflow-x: auto;
+              .nav-item {
+                a {
+                  white-space: nowrap;
+                  padding: 12px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .thirdBanner {
+    height: 153px;
+
+    .content {
+      p {
+        font-size: 28px;
+      }
+      button {
+        font-size: $fontSizeBody;
+        padding: 8px 34px;
+      }
+    }
+  }
+
+  .feedback {
+    &_container {
+      .row {
+        .col {
+          height: auto;
+          .swiper .swiper-wrapper .swiper-slide {
+            .feedback_left {
+              height: 360px;
+              .image_wrapper {
+                &-top {
+                  top: 10%;
+                  left: 10%;
+                  .heading {
+                    flex-direction: column;
+                    .icon {
+                      width: 20px;
+                      height: 20px;
+                      svg {
+                        width: 10px;
+                        height: 10px;
+                      }
+                    }
+
+                    .text {
+                      font-size: 22px;
+                    }
+                  }
+
+                  .title {
+                    span {
+                      font-size: $fontSizeBody;
+                    }
+                  }
+                }
+                &-bottom {
+                  p {
+                    font-size: 31px;
+                  }
+                }
+              }
+            }
+
+            .feedback_right {
+              p {
+                font-size: 16px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .follow {
+    &_container {
+      .row {
+        .follow_list {
+          overflow-x: auto;
+        }
+      }
+    }
+  }
+
+  .mostwatchvideo {
+    &_container {
+      .row {
+        &:last-child {
+          .mostwatchvideo_list {
+            .swiper-pagination {
+              opacity: 1;
+            }
+            .swiper-button-prev,
+            .swiper-button-next {
+              opacity: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpointDesktop) {
+  .productlist {
+    &_container {
+      .row {
+        &:last-child {
+          padding: 0 8px;
+          flex-wrap: nowrap;
+          overflow-x: auto;
+          scrollbar-width: none;
+
+          .productlist_item {
+            overflow-x: auto;
+            scrollbar-width: none;
+            .cardItem {
+              width: 300px;
+            }
+            .thumbnail {
+              height: 456px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .productlistFlashsale {
+    &_container {
+      .row {
+        &:last-child {
+          .navtab_content {
+            .tab {
+              gap: 8px;
+              grid-template-columns: repeat(5, 1fr);
+              overflow-x: auto;
+              scrollbar-width: none;
+              .flashsale_item {
+                width: 342px;
+                .thumbnail {
+                  height: 456px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .aboutus {
+    &_container {
+      .row {
+        height: auto;
+        .aboutus_content {
+          margin-top: 45px;
+          padding-left: 12px;
+          .heading {
+            text-align: center;
+            margin-bottom: 25px;
+          }
+
+          .title {
+            font-size: 16px !important;
+            margin-bottom: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .sporttip {
+    &_container {
+      .row {
+        .sporttip_list {
+          grid-template-rows: repeat(2, 1fr);
+          grid-template-columns: repeat(2, 1fr);
+          gap: 12px;
+        }
+      }
+    }
+  }
+
+  .categories {
+    &_container {
+      .row {
+        .categories_list {
+          .swiper-pagination {
+            display: none;
+          }
+
+          .swiper-button-next {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background-color: $bgneutralColor;
+            @include DflexAll(flex, center, center);
+            right: 10px;
+            &:after {
+              color: $primaryColor;
+              font-size: 16px;
+            }
+
+            &::before {
+              content: "";
+              position: absolute;
+              width: 0;
+              height: 0;
+              border: 0 solid transparent;
+              border-top-width: 40px;
+              border-bottom-width: 0px;
+              border-right: 10px solid $bgneutralColor;
+              right: 100%;
+              top: 0;
+            }
+          }
+
+          .swiper-button-prev {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background-color: $bgneutralColor;
+            @include DflexAll(flex, center, center);
+            left: 10px;
+            &:after {
+              color: $primaryColor;
+              font-size: 16px;
+            }
+
+            &::before {
+              content: "";
+              position: absolute;
+              width: 0;
+              height: 0;
+              border: 0 solid transparent;
+              border-top-width: 40px;
+              border-bottom-width: 0px;
+              border-left: 10px solid $bgneutralColor;
+              left: 100%;
+              top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpointTabletLarge) {
+  .coupon {
+    &_container {
+      .row {
+        padding-top: 2px;
+        padding-bottom: 2px;
+        overflow-y: hidden;
+      }
+    }
+  }
+
+  .productlist {
+    padding-top: 30px;
+    &_container {
+      .row {
+        &:last-child {
+          .productlist_item {
+            width: 267px;
+            .thumbnail {
+              height: 356px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .productlistThird {
+    padding-top: 0;
+  }
+
+  .productlistForth {
+    padding-top: 0;
+  }
+
+  .productlistFlashsale {
+    &_container {
+      .row {
+        &:last-child {
+          .navtab_content {
+            .tab {
+              grid-template-columns: repeat(8, 1fr);
+              grid-template-rows: none;
+              .flashsale_item {
+                width: 267px;
+                .thumbnail {
+                  height: 356px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .outstandingSports {
+    &_container {
+      .row {
+        .outstandingsport_list {
+          padding-top: 20px;
+
+          .swiper-pagination {
+            display: none;
+          }
+
+          .swiper-button-next {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background-color: $bgneutralColor;
+            @include DflexAll(flex, center, center);
+            right: 10px;
+            &:after {
+              color: $primaryColor;
+              font-size: 16px;
+            }
+
+            &::before {
+              content: "";
+              position: absolute;
+              width: 0;
+              height: 0;
+              border: 0 solid transparent;
+              border-top-width: 40px;
+              border-bottom-width: 0px;
+              border-right: 10px solid $bgneutralColor;
+              right: 100%;
+              top: 0;
+            }
+          }
+
+          .swiper-button-prev {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background-color: $bgneutralColor;
+            @include DflexAll(flex, center, center);
+            left: 10px;
+            &:after {
+              color: $primaryColor;
+              font-size: 16px;
+            }
+
+            &::before {
+              content: "";
+              position: absolute;
+              width: 0;
+              height: 0;
+              border: 0 solid transparent;
+              border-top-width: 40px;
+              border-bottom-width: 0px;
+              border-left: 10px solid $bgneutralColor;
+              left: 100%;
+              top: 0;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .aboutus {
+    &_container {
+      .row {
+        height: auto;
+        .aboutus_content {
+          margin-top: 45px;
+          padding-left: 12px;
+          .heading {
+            text-align: center;
+            margin-bottom: 25px;
+          }
+
+          .title {
+            font-size: 16px !important;
+            margin-bottom: 16px;
+          }
+        }
+      }
+    }
+  }
+
+  .mostwatchvideo {
+    &_container {
+      .row {
+        .mostwatchvideo_heading {
+          margin-top: 60px;
+        }
+
+        .mostwatchvideo_list {
+          padding-top: 20px;
+
+          .swiper-pagination {
+            display: none;
+          }
+
+          .swiper-button-next {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background-color: $bgneutralColor;
+            @include DflexAll(flex, center, center);
+            right: 10px;
+            &:after {
+              color: $primaryColor;
+              font-size: 16px;
+            }
+
+            &::before {
+              content: "";
+              position: absolute;
+              width: 0;
+              height: 0;
+              border: 0 solid transparent;
+              border-top-width: 40px;
+              border-bottom-width: 0px;
+              border-right: 10px solid $bgneutralColor;
+              right: 100%;
+              top: 0;
+            }
+          }
+
+          .swiper-button-prev {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            background-color: $bgneutralColor;
+            @include DflexAll(flex, center, center);
+            left: 10px;
+            &:after {
+              color: $primaryColor;
+              font-size: 16px;
+            }
+
+            &::before {
+              content: "";
+              position: absolute;
+              width: 0;
+              height: 0;
+              border: 0 solid transparent;
+              border-top-width: 40px;
+              border-bottom-width: 0px;
+              border-left: 10px solid $bgneutralColor;
+              left: 100%;
+              top: 0;
+            }
+          }
+
+          .swiper-slide {
+            height: 681px !important;
+          }
+        }
+      }
+    }
+  }
+
+  .follow {
+    &_container {
+      .row {
+        .follow_list {
+          &-item {
+            width: 282px;
+            height: 282px;
+          }
+        }
+      }
+    }
+  }
+
+  .sporttip {
+    &_container {
+      .row {
+        .sporttip_list {
+          grid-template-columns: repeat(4, 1fr) !important;
+          grid-template-rows: none;
+          overflow-x: auto;
+          &-item {
+            width: 568px;
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpointTablet) {
+  .mainBanner {
+    height: 310px;
+
+    .swiper-button-next {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .swiper-button-prev {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .technical {
+    &_container {
+      .row {
+        flex-wrap: nowrap;
+        overflow-x: scroll;
+      }
+    }
+  }
+
+  .coupon {
+    &_container {
+      .row {
+        .coupon_item {
+          &-wrapper {
+            .item-icon {
+              flex: none;
+            }
+
+            .item-content {
+              flex: 1;
+              .top {
+                justify-content: space-between;
+              }
+
+              .bottom {
+                display: flex;
+                justify-content: space-between;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .productlistFlashsale {
+    &_container {
+      .row {
+        &:last-child {
+          .navtab_content {
+            .tab {
+              .flashsale_item {
+                width: 267px;
+                .thumbnail {
+                  height: 356px;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .secondBanner {
+    .swiper-button-next {
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .swiper-button-prev {
+      opacity: 0;
+      visibility: hidden;
+    }
+  }
+
+  .feedback {
+    &_container {
+      .row {
+        .col {
+          .swiper {
+            .swiper-wrapper {
+              .swiper-slide {
+                .feedback_left {
+                  .image_wrapper {
+                    &-bottom {
+                      p {
+                        font-size: 28px;
+                      }
+                      span {
+                        font-size: $fontSizeCaption;
+                      }
+                    }
+                  }
+                }
+
+                .feedback_right {
+                  p {
+                    font-size: $fontSizeBody;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .materialintroduction {
+    &_container {
+      .row {
+        .materialintroduction_desc {
+          .desc_wrapper {
+            .button {
+              width: 30%;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpointPhoneLarge) {
+  .mainBanner {
+    height: 235px;
+  }
+
+  .policies {
+    &_container {
+      .row {
+        .col {
+          grid-template-columns: repeat(1, 1fr) !important;
+        }
+      }
+    }
+  }
+
+  .outstandingSports {
+    margin-bottom: 30px;
+  }
+
+  .thirdBanner {
+    height: 95px;
+    margin-bottom: 30px;
+    .content {
+      p {
+        font-size: 16px;
+      }
+
+      button {
+        font-size: 10px;
+        padding: 4px 12px;
+      }
+    }
+  }
+
+  .productlist {
+    &_container {
+      .row {
+        &:last-child {
+          .productlist_item {
+            .cardItem {
+              width: 200px;
+              .thumbnail {
+                height: 266.67px !important;
+              }
+
+              .info {
+                &-name {
+                  font-size: 15px;
+                }
+
+                &-choosecolor {
+                  .seemore,
+                  .image {
+                    width: 28px;
+                    height: 28px;
+                  }
+
+                  .seemore {
+                    span {
+                      font-size: $fontSizeBody;
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .productlistFlashsale {
+    &_container {
+      .row {
+        &:last-child {
+          .navtab_content {
+            .tab {
+              .flashsale_item {
+                &-wrapper {
+                  .info {
+                    .info-choosecolor {
+                      .seemore,
+                      .image {
+                        width: 30px;
+                        height: 30px;
+                      }
+                      .seemore span {
+                        font-size: $fontSizeCaption;
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .feedback {
+    &_container {
+      .row {
+        .col {
+          .swiper {
+            .swiper-wrapper {
+              .swiper-slide {
+                flex-direction: column;
+                .feedback_left,
+                .feedback_right {
+                  width: 100% !important;
+                }
+
+                .feedback_left {
+                  height: auto;
+                }
+
+                .feedback_right {
+                  p {
+                    padding: 15px;
+                    margin-bottom: 0;
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .materialintroduction {
+    &_container {
+      .row {
+        .materialintroduction_desc {
+          .desc_wrapper {
+            .button {
+              width: 40%;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .video {
+    margin-bottom: 30px;
+  }
+
+  .mostwatchvideo {
+    &_container {
+      .row {
+        .mostwatchvideo_heading {
+          margin-top: 0;
+        }
+        .mostwatchvideo_list {
+          padding-top: 0 !important;
+        }
+      }
+    }
+  }
+
+  .follow {
+    margin-bottom: 30px;
+  }
+
+  .sporttip {
+    &_container {
+      .row {
+        .sporttip_heading {
+          flex-direction: column;
+          p {
+            text-align: center;
+          }
+        }
+
+        .sporttip_list {
+          &-item {
+            width: 300px;
+          }
+        }
+      }
+    }
+  }
+
+  .navbarBottom {
+    opacity: 1;
+    visibility: visible;
+    transition: 0.2s ease-in;
+  }
+}
+
+@media screen and (max-width: $breakpointPhone) {
+  .mainBanner {
+    height: 148px;
+  }
+
+  .banner {
+    height: 150px;
+  }
+
+  .coupon {
+    &_container {
+      .row {
+        .coupon_item {
+          .item-content {
+            .bottom {
+              flex-direction: column;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .materialintroduction {
+    &_container {
+      .row {
+        .materialintroduction_photo {
+          .image {
+            margin-top: 15px;
+            .img {
+              object-fit: cover;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .lookbook {
+    &_container {
+      .row {
+        .lookbook_item {
+          .item_wrapper {
+            .banner {
+              height: 440px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

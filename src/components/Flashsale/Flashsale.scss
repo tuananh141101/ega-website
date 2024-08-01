@@ -1,0 +1,26 @@
+@import "../../assets/styles/variables";
+
+.flashSale {
+  p {
+    padding-left: 0;
+    margin-bottom: 8px;
+  }
+
+  .countdownTime {
+    &_wrapper {
+      gap: 3px;
+      .hours,
+      .minutes,
+      .seconds {
+        width: 35px;
+        height: 35px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: #d3232a;
+        color: $secondaryColor;
+        border-radius: 3px;
+      }
+    }
+  }
+}
