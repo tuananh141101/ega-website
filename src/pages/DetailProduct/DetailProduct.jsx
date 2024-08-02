@@ -29,14 +29,20 @@ import { Couponbanner } from "../../components/Coupon/Couponbanner";
 import Nav from "react-bootstrap/Nav";
 
 const DetailProduct = () => {
+  //*get data from state
   const getProduct = useSelector((state) => state.product);
+
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [mainSwiper, setMainSwiper] = useState(null);
   const [isChooseColorActive, setIsChooseColorActive] = useState(0);
+  const [seeMoreDetail, isSeeMoreDetail] = useState(false);
   const [isActiveTabProduct, setIsAcitveTabProduct] = useState(0);
   const [isChooseSize, setIsChooseSize] = useState(0);
   const [size, setSize] = useState("S");
   const [quality, setQuality] = useState(1);
+  const [qualitySecond, setQualitySecond] = useState(1);
+
+  console.log("check activetab", isActiveTabProduct);
 
   //* Show Coupon
   const [show, setShow] = useState(false);
@@ -44,14 +50,22 @@ const DetailProduct = () => {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+  //* Incre-Decre
   const handleDecrement = () => {
     if (quality > 1) {
       setQuality(quality - 1);
     }
   };
-
   const handleIncrement = () => {
     setQuality(quality + 1);
+  };
+
+  //* Đổi ảnh chính khi click chooseColor
+  const handleColorClick = (index) => {
+    if (mainSwiper) {
+      //*slideTo(Swiper) - phương thức để chuyển đến slide hiện tại
+      mainSwiper.slideTo(index);
+    }
   };
 
   return (
@@ -245,6 +259,7 @@ const DetailProduct = () => {
                           key={index}
                           onClick={() => {
                             setIsChooseColorActive(index);
+                            handleColorClick(index);
                           }}
                         >
                           <OverlayTrigger
@@ -350,8 +365,8 @@ const DetailProduct = () => {
         </Container>
       </section>
 
-      <section className="navtabProduct">
-        <Container className="navtabProduct_container">
+      <section className="navtabproduct">
+        <Container className="navtabproduct_container">
           <Row>
             <Col
               sm={12}
@@ -359,10 +374,20 @@ const DetailProduct = () => {
             >
               <Nav variant="underline" defaultActiveKey={isActiveTabProduct}>
                 <Nav.Item>
-                  <Nav.Link eventKey={0}>Mô tả sản phẩm</Nav.Link>
+                  <Nav.Link
+                    eventKey={0}
+                    onClick={() => setIsAcitveTabProduct(0)}
+                  >
+                    Mô tả sản phẩm
+                  </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
-                  <Nav.Link eventKey={1}>Chính sách giao hàng</Nav.Link>
+                  <Nav.Link
+                    eventKey={1}
+                    onClick={() => setIsAcitveTabProduct(1)}
+                  >
+                    Chính sách giao hàng
+                  </Nav.Link>
                 </Nav.Item>
                 <Nav.Item>
                   <Nav.Link eventKey={2}>Chính sách đổi trả</Nav.Link>
@@ -371,26 +396,344 @@ const DetailProduct = () => {
             </Col>
 
             <Col sm={12} className="navtab_content">
-              <div className="tabcontent tabcontent_1 active">
-                <p>
-                  ​​​​​Áo khoác thể thao là một sản phẩm không thể thiếu trong
-                  bộ trang phục của những người đam mê tập luyện, đặc biệt là
-                  trong các hoạt động thể thao ngoài trời. Với thiết kế đơn
-                  giản, chất liệu thoáng khí và chống thấm tốt, áo khoác thể
-                  thao mang lại sự thoải mái và bảo vệ cho người dùng trong quá
-                  trình tập luyện.
-                </p>
-                <p>
-                  Về kiểu dáng, áo khoác thể thao thường có thiết kế rộng rãi,
-                  không quá ôm sát cơ thể để người dùng có thể di chuyển dễ dàng
-                  trong các động tác tập luyện. Thiết kế áo có thể được chọn với
-                  cổ cao, cổ tròn hoặc cổ chữ V, tay dài hoặc tay ngắn tùy vào
-                  sở thích của người dùng. Tùy thuộc vào mục đích sử dụng, áo
-                  khoác thể thao có thể được thiết kế với các chi tiết như túi
-                  đựng điện thoại, khóa kéo hay các đường may chắc chắn để đảm
-                  bảo sự tiện dụng và bền đẹp.
-                </p>
+              <div
+                className={`tabcontent tabcontent_0 flex-column ${
+                  isActiveTabProduct === 0 ? "tabcontent-active" : ""
+                }`}
+              >
+                <div
+                  className="content-wrapper d-flex align-items-center flex-column"
+                  style={{
+                    height: seeMoreDetail ? "auto" : "300px",
+                  }}
+                >
+                  <p>
+                    ​​​​​Áo khoác thể thao là một sản phẩm không thể thiếu trong
+                    bộ trang phục của những người đam mê tập luyện, đặc biệt là
+                    trong các hoạt động thể thao ngoài trời. Với thiết kế đơn
+                    giản, chất liệu thoáng khí và chống thấm tốt, áo khoác thể
+                    thao mang lại sự thoải mái và bảo vệ cho người dùng trong
+                    quá trình tập luyện.
+                  </p>
+                  <p>
+                    Về kiểu dáng, áo khoác thể thao thường có thiết kế rộng rãi,
+                    không quá ôm sát cơ thể để người dùng có thể di chuyển dễ
+                    dàng trong các động tác tập luyện. Thiết kế áo có thể được
+                    chọn với cổ cao, cổ tròn hoặc cổ chữ V, tay dài hoặc tay
+                    ngắn tùy vào sở thích của người dùng. Tùy thuộc vào mục đích
+                    sử dụng, áo khoác thể thao có thể được thiết kế với các chi
+                    tiết như túi đựng điện thoại, khóa kéo hay các đường may
+                    chắc chắn để đảm bảo sự tiện dụng và bền đẹp.
+                  </p>
+                  <div className="image">
+                    {getProduct[0].imgList.slice(0, 1).map((item, index) => {
+                      return (
+                        <>
+                          <img src={item} alt="" />
+                        </>
+                      );
+                    })}
+                  </div>
+                  <p className="pt-3">
+                    Chất liệu của áo khoác thể thao cũng rất đa dạng, tùy vào
+                    mục đích sử dụng và sở thích của người dùng. Thông thường,
+                    áo khoác thể thao được làm từ chất liệu polyester, nylon
+                    hoặc vải softshell, có khả năng chống thấm và thoáng khí
+                    tốt, giúp người dùng luôn cảm thấy khô ráo và thoải mái
+                    trong quá trình tập luyện. Ngoài ra, một số sản phẩm còn
+                    được làm từ chất liệu cao cấp như Gore-Tex, giúp tăng độ
+                    chống thấm và bảo vệ cho người dùng trong môi trường thời
+                    tiết khắc nghiệt.
+                  </p>
+                  <p>
+                    Màu sắc của áo khoác thể thao cũng rất đa dạng và phong phú,
+                    từ màu sắc trung tính như đen, xám, trắng đến các màu sắc
+                    sáng tươi như vàng, xanh lá, hồng. Điều này giúp người dùng
+                    có thể lựa chọn sản phẩm phù hợp với sở thích cá nhân và tạo
+                    nét riêng cho bản thân khi tập luyện.
+                  </p>
+                  <div className="image">
+                    {getProduct[0].imgList.slice(1, 4).map((item, index) => {
+                      return (
+                        <>
+                          <img src={item} alt="" />
+                        </>
+                      );
+                    })}
+                  </div>
+                  <p className="pt-3">
+                    Độ thoải mái của áo khoác thể thao là một yếu tố quan trọng
+                    được đánh giá cao bởi người dùng. Với chất liệu mềm mại và
+                    co giãn tốt, áo khoác thể thao giúp người dùng tập trung vào
+                    việc thở đều và tập trung vào các động tác tập luyện. Điều
+                    này giúp đạt được hiệu quả tập luyện tốt hơn và giảm thiểu
+                    các chấn thương, đau nhức cơ thể.
+                  </p>
+                </div>
+
+                <div
+                  className="btn-seemoredetail d-flex align-items-center justify-content-center"
+                  onClick={() => isSeeMoreDetail(!seeMoreDetail)}
+                >
+                  <Link>Xem thêm</Link>
+                </div>
               </div>
+
+              <div
+                className={`tabcontent tabcontent_1 flex-column ${
+                  isActiveTabProduct === 1 ? "tabcontent-active" : ""
+                }`}
+              >
+                <p>
+                  EGA Sportswear có dịch vụ giao hàng tận nơi trên toàn quốc, áp
+                  dụng cho khách mua hàng trên website, fanpage và gọi điện
+                  thoại, không áp dụng cho khách mua trực tiếp tại cửa hàng.
+                </p>
+                <p>
+                  Đơn hàng sẽ được chuyển phát đến tận địa chỉ khách hàng cung
+                  cấp thông qua công ty vận chuyển trung gian.
+                </p>
+                <p style={{ fontWeight: "bold" }}>1. Thời gian giao hàng:</p>
+                <ul>
+                  <li>
+                    <p>Đơn hàng nội và ngoại thành TP.HCM:</p>
+                    <ul>
+                      <p>Thời gian giao hàng là 1-2 ngày sau khi đặt hàng.</p>
+                      <p>
+                        Đơn hang trước 11h30 trưa thì sẽ giao trong buổi chiều
+                        cùng ngày.
+                      </p>
+                      <p>
+                        Đơn hàng sau 11h30 sẽ giao trong buổi tối và sáng hôm
+                        sau.
+                      </p>
+                      d
+                    </ul>
+                  </li>
+                  <li>
+                    <p>Đơn hàng ở các tỉnh thành khác:</p>
+                    <ul>
+                      <p>
+                        Thời gian là 2-3 ngày đối với khu vực trung tâm tỉnh
+                        thành phố, 3-7 ngày đối với khu vực ngoại thành, huyện,
+                        xã, thị trấn…
+                      </p>
+                      <p>Không tính thứ bảy, chủ nhật hay các ngày lễ tết</p>
+                      <p>
+                        KThời gian xử lý đơn hàng sẽ được tính từ khi nhận được
+                        thanh toán hoàn tất của quý khách.
+                      </p>
+                    </ul>
+                  </li>
+                </ul>
+                <p style={{ fontWeight: "bold" }}>2. Phí giao hàng:</p>
+                <ul>
+                  <li>
+                    <p>Phí ship cố định là 30,000đ áp dụng cho mọi khu vực</p>
+                  </li>
+                </ul>
+              </div>
+
+              <div
+                className={`tabcontent tabcontent_2 flex-column align-items-center ${
+                  isActiveTabProduct === 2 ? "tabcontent-active" : ""
+                }`}
+              >
+                <p>
+                  EGA Sportswear có dịch vụ giao hàng tận nơi trên toàn quốc, áp
+                  dụng cho khách mua hàng trên website, fanpage và gọi điện
+                  thoại, không áp dụng cho khách mua trực tiếp tại cửa hàng.
+                </p>
+                <p>
+                  Đơn hàng sẽ được chuyển phát đến tận địa chỉ khách hàng cung
+                  cấp thông qua công ty vận chuyển trung gian.
+                </p>
+                <p style={{ fontWeight: "bold" }}>1. Thời gian giao hàng:</p>
+                <ul>
+                  <li>
+                    <p>Đơn hàng nội và ngoại thành TP.HCM:</p>
+                    <ul>
+                      <p>Thời gian giao hàng là 1-2 ngày sau khi đặt hàng.</p>
+                      <p>
+                        Đơn hang trước 11h30 trưa thì sẽ giao trong buổi chiều
+                        cùng ngày.
+                      </p>
+                      <p>
+                        Đơn hàng sau 11h30 sẽ giao trong buổi tối và sáng hôm
+                        sau.
+                      </p>
+                      d
+                    </ul>
+                  </li>
+                  <li>
+                    <p>Đơn hàng ở các tỉnh thành khác:</p>
+                    <ul>
+                      <p>
+                        Thời gian là 2-3 ngày đối với khu vực trung tâm tỉnh
+                        thành phố, 3-7 ngày đối với khu vực ngoại thành, huyện,
+                        xã, thị trấn…
+                      </p>
+                      <p>Không tính thứ bảy, chủ nhật hay các ngày lễ tết</p>
+                      <p>
+                        KThời gian xử lý đơn hàng sẽ được tính từ khi nhận được
+                        thanh toán hoàn tất của quý khách.
+                      </p>
+                    </ul>
+                  </li>
+                </ul>
+                <p style={{ fontWeight: "bold" }}>2. Phí giao hàng:</p>
+                <ul>
+                  <li>
+                    <p>Phí ship cố định là 30,000đ áp dụng cho mọi khu vực</p>
+                  </li>
+                </ul>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      <section className="cartproduct">
+        <Container className="cartproduct_container">
+          <Row>
+            <Col>
+              <div className="cartproduct_wrapper d-flex align-items-center">
+                <div className="image">
+                  <img
+                    src="../../src/assets/images/ImgReduxState/img_product_21.jpg"
+                    alt=""
+                  />
+                </div>
+
+                <div className="info d-flex flex-column">
+                  <p className="info_name">
+                    Demo coupon nhập liệu từ metafield
+                  </p>
+
+                  <div className="info_pricebox">
+                    <div className="pricebox-top d-flex">
+                      <span className="specialprice">350.000đ</span>
+                      <span className="oldprice">
+                        <del>450.000đ</del>
+                      </span>
+                      <span className="sale">-23%</span>
+                    </div>
+
+                    <div className="pricebox-bottom">(Tiết kiệm 100.000đ)</div>
+                  </div>
+                </div>
+
+                <div className="button d-flex algin-items-center">
+                  <div className="button_selected d-flex align-items-center">
+                    <div className="selected-color">
+                      <select name="colors" id="colors">
+                        <option value="Cam">Cam</option>
+                        <option value="Hồng">Hồng</option>
+                        <option value="Đen">Đen</option>
+                        <option value="Xanh Đen">Xanh Đen</option>
+                      </select>
+                    </div>
+
+                    <div className="selected-size">
+                      <select name="sizes" id="sizes">
+                        <option value="S">S</option>
+                        <option value="M">M</option>
+                        <option value="L">L</option>
+                        <option value="XL">XL</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div className="button_addtocart d-flex align-items-center">
+                    <div className="addtocart-left d-flex align-items-center">
+                      <span>Số lượng: </span>
+
+                      <div className="input-number">
+                        <button
+                          className="decre"
+                          onClick={() => {
+                            if (qualitySecond > 1) {
+                              setQualitySecond(qualitySecond - 1);
+                            }
+                          }}
+                        >
+                          <BsDash />
+                        </button>
+                        <input type="number" value={qualitySecond} />
+                        <button
+                          className="incre"
+                          onClick={() => setQualitySecond(qualitySecond + 1)}
+                        >
+                          <FaPlus />
+                        </button>
+                      </div>
+                    </div>
+
+                    <div className="addtocart-right d-flex align-items-center">
+                      Thêm vào giỏ
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      <section className="samepriceproduct">
+        <Container className="samepriceproduct_container">
+          <Row>
+            <Col className="samepriceproduct_title">
+              <p>Sản phẩm cùng giá tiền</p>
+            </Col>
+          </Row>
+
+          <Row className="mt-4">
+            <Col className="samepriceproduct_list">
+              {getProduct.map((item, index) => {
+                return (
+                  <>
+                    <CardItem data={item} key={index} />
+                  </>
+                );
+              })}
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      <section className="sametypeproduct">
+        <Container className="sametypeproduct_container">
+          <Row>
+            <Col className="sametypeproduct_title">
+              <p>Sản phẩm cùng loại</p>
+            </Col>
+          </Row>
+
+          <Row>
+            <Col className="sametypeproduct_list">
+              <span>Không có sản phẩm cùng loại</span>
+            </Col>
+          </Row>
+        </Container>
+      </section>
+
+      <section className="seenproduct">
+        <Container className="seenproduct_container">
+          <Row>
+            <Col className="seenproduct_title d-flex justify-content-between">
+              <p>Sản phẩm cùng phân khúc</p>
+            </Col>
+          </Row>
+          <Row className="mt-4">
+            <Col className="seenproduct_list">
+              {getProduct.map((item, index) => {
+                return (
+                  <>
+                    <CardItem data={item} key={index} />
+                  </>
+                );
+              })}
             </Col>
           </Row>
         </Container>

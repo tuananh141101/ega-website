@@ -15,7 +15,7 @@ const CardItem = (props) => {
   const handleShow = () => setShow(true);
 
   const [currentImg, setCurrentImg] = useState("");
-  console.log("check currnet img", currentImg);
+  console.log("check currentImg", currentImg);
 
   const [isChooseColorActive, setIsChooseColorActive] = useState(0);
 

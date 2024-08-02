@@ -414,28 +414,44 @@ const Home = () => {
                 className="mySwiper"
               >
                 <SwiperSlide>
-                  <img src="../../src/assets/images/running_img.jpg" alt="" />
+                  <img
+                    src="../../src/assets/images/running_img.jpg"
+                    alt=""
+                    onClick={() => navigate("blog")}
+                  />
                   <div className="content">
                     <p>Boxing</p>
                     <button>Khám phá ngay</button>
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <img src="../../src/assets/images/running_img.jpg" alt="" />
+                  <img
+                    src="../../src/assets/images/running_img.jpg"
+                    alt=""
+                    onClick={() => navigate("blog")}
+                  />
                   <div className="content">
                     <p>Boxing</p>
                     <button>Khám phá ngay</button>
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <img src="../../src/assets/images/running_img.jpg" alt="" />
+                  <img
+                    src="../../src/assets/images/running_img.jpg"
+                    alt=""
+                    onClick={() => navigate("blog")}
+                  />
                   <div className="content">
                     <p>Boxing</p>
                     <button>Khám phá ngay</button>
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
-                  <img src="../../src/assets/images/running_img.jpg" alt="" />
+                  <img
+                    src="../../src/assets/images/running_img.jpg"
+                    alt=""
+                    onClick={() => navigate("blog")}
+                  />
                   <div className="content">
                     <p>Boxing</p>
                     <button>Khám phá ngay</button>
@@ -464,7 +480,7 @@ const Home = () => {
                 <span>Phụ kiện thể thao</span>
               </Link>
 
-              <Link to="" className="seeall">
+              <Link to="shop" className="seeall">
                 <span>Xem tất cả</span>
               </Link>
             </Col>
@@ -1015,7 +1031,7 @@ const Home = () => {
               className="sporttip_heading d-flex align-items-center justify-content-between"
             >
               <p>Lời khuyên thể thao dành cho bạn</p>
-              <Link>Xem tất cả</Link>
+              <Link to="blog">Xem tất cả</Link>
             </Col>
 
             <Col sm={12} className="sporttip_list">
@@ -1027,6 +1043,7 @@ const Home = () => {
                   <img
                     src="../../src/assets/images/sporttip_img_1.png"
                     alt=""
+                    onClick={() => navigate("blog")}
                   />
                 </div>
 
@@ -1046,6 +1063,7 @@ const Home = () => {
                   <img
                     src="../../src/assets/images/sporttip_img_2.png"
                     alt=""
+                    onClick={() => navigate("blog")}
                   />
                 </div>
 
@@ -1065,6 +1083,7 @@ const Home = () => {
                   <img
                     src="../../src/assets/images/sporttip_img_3.png"
                     alt=""
+                    onClick={() => navigate("blog")}
                   />
                 </div>
 
@@ -1084,6 +1103,7 @@ const Home = () => {
                   <img
                     src="../../src/assets/images/sporttip_img_1.png"
                     alt=""
+                    onClick={() => navigate("blog")}
                   />
                 </div>
 
@@ -1135,6 +1155,7 @@ const Home = () => {
                   <img
                     src="../../src/assets/images/productlist_img_2.png"
                     alt=""
+                    onClick={() => navigate("shop")}
                   />
 
                   <div className="content d-flex align-items-center justify-content-between">
@@ -1148,6 +1169,7 @@ const Home = () => {
                   <img
                     src="../../src/assets/images/productlist_img_1.png"
                     alt=""
+                    onClick={() => navigate("shop")}
                   />
 
                   <div className="content d-flex align-items-center justify-content-between">
@@ -1161,6 +1183,7 @@ const Home = () => {
                   <img
                     src="../../src/assets/images/productlist_img_1.png"
                     alt=""
+                    onClick={() => navigate("shop")}
                   />
 
                   <div className="content d-flex align-items-center justify-content-between">
@@ -1174,6 +1197,7 @@ const Home = () => {
                   <img
                     src="../../src/assets/images/productlist_img_2.png"
                     alt=""
+                    onClick={() => navigate("shop")}
                   />
 
                   <div className="content d-flex align-items-center justify-content-between">
