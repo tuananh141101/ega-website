@@ -1,15 +1,22 @@
 import { FaArrowLeft } from "react-icons/fa6";
 import { useDispatch, useSelector } from "react-redux";
-import { filterItem } from "../../../store/slice/categories";
+import { filterItem, removefilterItem } from "../../../store/slice/categories";
 
 const Sidebar = (props) => {
   const { close } = props;
   const dispatch = useDispatch();
 
   const listFilter = useSelector((state) => state.shop.categories);
+  const filterList = useSelector((state) => state.shop.filterList);
+  console.log("check filter list", filterList);
+  console.log("listfilter", listFilter);
 
   const handleChooseFilterItem = (e) => {
-    dispatch(filterItem(e.target.value));
+    if (e.target.checked === true) {
+      dispatch(filterItem(e.target.value));
+    } else {
+      dispatch(removefilterItem(e.target.value));
+    }
   };
 
   return (

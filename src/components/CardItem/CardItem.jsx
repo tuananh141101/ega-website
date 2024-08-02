@@ -8,7 +8,6 @@ import { useState } from "react";
 const CardItem = (props) => {
   const navigate = useNavigate();
   const location = useLocation();
-  console.log("location", location);
   const { data } = props;
   const dataimgList = data.imgList;
   const [show, setShow] = useState(false);
