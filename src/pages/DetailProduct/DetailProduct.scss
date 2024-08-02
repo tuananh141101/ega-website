@@ -41,7 +41,7 @@
             display: block;
             width: 100%;
             height: 100%;
-            object-fit: cover;
+            object-fit: contain;
           }
           .swiper-button-next {
             width: 40px;
@@ -76,6 +76,11 @@
               color: $primaryColor;
               font-weight: bold;
             }
+          }
+          .swiper-slide-thumb-active {
+            padding: 6px;
+            transition: 0.2s ease-in-out;
+            border: 1px solid $primaryColor;
           }
 
           .socail-media {

@@ -37,10 +37,10 @@ const DetailProduct = () => {
   const [isChooseColorActive, setIsChooseColorActive] = useState(0);
   const [seeMoreDetail, isSeeMoreDetail] = useState(false);
   const [isActiveTabProduct, setIsAcitveTabProduct] = useState(0);
-  const [isChooseSize, setIsChooseSize] = useState(0);
   const [size, setSize] = useState("S");
   const [quality, setQuality] = useState(1);
   const [qualitySecond, setQualitySecond] = useState(1);
+  console.log("check mainSwiper", mainSwiper);
 
   console.log("check activetab", isActiveTabProduct);
 
