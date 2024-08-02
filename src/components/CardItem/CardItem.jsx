@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./CardItem.scss";
 import { Button, Modal, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { FaRegEye } from "react-icons/fa";
@@ -7,6 +7,8 @@ import { useState } from "react";
 
 const CardItem = (props) => {
   const navigate = useNavigate();
+  const location = useLocation();
+  console.log("location", location);
   const { data } = props;
   const dataimgList = data.imgList;
   const [show, setShow] = useState(false);
@@ -80,7 +82,15 @@ const CardItem = (props) => {
             <span
               className="info-name"
               title="Ao tap"
-              onClick={() => navigate("detailproduct")}
+              // onClick={() => handleClickToDetailPage}
+              onClick={() => {
+                const currentPath = location.pathname;
+                if (currentPath.includes("/shop")) {
+                  navigate("detailproduct"); //neu nhu path hien tai co /shop
+                } else {
+                  navigate("/shop/detailproduct"); // nguoc lai
+                }
+              }}
             >
               {data.name}
             </span>
