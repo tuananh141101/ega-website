@@ -119,6 +119,10 @@
                 font-size: 18px;
                 line-height: 140%;
               }
+
+              .accordion-body {
+                color: #6e6e6e;
+              }
             }
           }
         }
@@ -160,6 +164,19 @@
               color: $secondaryColor;
             }
           }
+        }
+      }
+    }
+  }
+}
+
+@media screen and (max-width: $breakpointTabletLarge) {
+  .faq {
+    &_container {
+      .faq_form {
+        padding-top: 40px;
+        &-wrapper {
+          width: 100% !important;
         }
       }
     }
