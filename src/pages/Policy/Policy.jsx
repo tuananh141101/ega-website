@@ -1,7 +1,12 @@
 import { Breadcrumb, Col, Container, Row } from "react-bootstrap";
 import "./Policy.scss";
+import { useEffect } from "react";
 
 const Policy = () => {
+  //* Mới vào trang sẽ mặc định scroll lên dầu
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <section className="breadCrumb">

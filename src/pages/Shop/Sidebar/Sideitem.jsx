@@ -24,7 +24,10 @@ const Sideitem = () => {
     <>
       <div className="category_wrapper">
         <Row>
-          <Col sm={12} className="category_filter d-flex align-items-center">
+          <Col
+            sm={12}
+            className="category_filter d-flex align-items-center flex-wrap"
+          >
             {chooseItemFilter.map((item, index) => {
               return (
                 <>

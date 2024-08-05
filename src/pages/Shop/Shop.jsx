@@ -10,67 +10,6 @@ import CollectionBanner from "../../components/Banner/CollectionBanner";
 import { useSelector } from "react-redux";
 
 const Shop = () => {
-  const productList = [
-    {
-      id: 1,
-      name: "Áo croptop tập gym yoga",
-      price: "390.000",
-      comparePrice: "350.000",
-      videoIcon: "../../src/assets/images/icon-button-play.png",
-      hotdeal: "../../src/assets/images/promo_tag_hotdeal.png",
-      bgProductIMG: "../../src/assets/images/bg_productlist_img_2.png",
-      imgURLFirst: "../../src/assets/images/productlist_img_1.png",
-      imgURLSecond: "../../src/assets/images/productlist_img_2.png",
-      imgList: [
-        "../../src/assets/images/productlist_img_1.png",
-        "../../src/assets/images/productlist_img_2.png",
-      ],
-    },
-    {
-      id: 2,
-      name: "Áo croptop tập gym yoga",
-      price: "390.000",
-      comparePrice: "350.000",
-      videoIcon: "../../src/assets/images/icon-button-play.png",
-      hotdeal: "../../src/assets/images/promo_tag_hotdeal.png",
-      bgProductIMG: "../../src/assets/images/bg_productlist_img.png",
-      imgURLFirst: "../../src/assets/images/productlist_img_1.png",
-      imgURLSecond: "../../src/assets/images/productlist_img_2.png",
-      imgList: [
-        "../../src/assets/images/productlist_img_1.png",
-        "../../src/assets/images/productlist_img_2.png",
-      ],
-    },
-    {
-      id: 3,
-      name: "Áo croptop tập gym yoga",
-      price: "390.000",
-      comparePrice: "350.000",
-      videoIcon: "../../src/assets/images/icon-button-play.png",
-      hotdeal: "../../src/assets/images/promo_tag_hotdeal.png",
-      imgURLFirst: "../../src/assets/images/productlist_img_1.png",
-      imgURLSecond: "../../src/assets/images/productlist_img_2.png",
-      imgList: [
-        "../../src/assets/images/productlist_img_1.png",
-        "../../src/assets/images/productlist_img_2.png",
-      ],
-    },
-    {
-      id: 4,
-      name: "Áo croptop tập gym yoga",
-      price: "390.000",
-      comparePrice: "350.000",
-      videoIcon: "../../src/assets/images/icon-button-play.png",
-      hotdeal: "../../src/assets/images/promo_tag_hotdeal.png",
-      imgURLFirst: "../../src/assets/images/productlist_img_1.png",
-      imgURLSecond: "../../src/assets/images/productlist_img_2.png",
-      imgList: [
-        "../../src/assets/images/productlist_img_1.png",
-        "../../src/assets/images/productlist_img_2.png",
-      ],
-    },
-  ];
-
   const getProduct = useSelector((state) => state.product);
 
   //* Mới vào trang sẽ mặc định scroll lên dầu

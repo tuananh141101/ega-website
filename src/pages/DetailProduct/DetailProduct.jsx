@@ -12,7 +12,7 @@ import "./DetailProduct.scss";
 import CardItem from "../../components/CardItem/CardItem";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { SwiperSlide, Swiper } from "swiper/react";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { FaFacebook } from "react-icons/fa";
 import { FaPinterest } from "react-icons/fa";
 import { FaCheck } from "react-icons/fa6";
@@ -67,6 +67,11 @@ const DetailProduct = () => {
       mainSwiper.slideTo(index);
     }
   };
+
+  //* Mới vào trang sẽ mặc định scroll lên dầu
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   return (
     <>
@@ -473,7 +478,9 @@ const DetailProduct = () => {
 
                 <div
                   className="btn-seemoredetail d-flex align-items-center justify-content-center"
-                  onClick={() => isSeeMoreDetail(!seeMoreDetail)}
+                  onClick={() => {
+                    isSeeMoreDetail(!seeMoreDetail);
+                  }}
                 >
                   <Link>Xem thêm</Link>
                 </div>

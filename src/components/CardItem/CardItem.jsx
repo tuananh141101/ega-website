@@ -1,6 +1,16 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./CardItem.scss";
-import { Button, Modal, OverlayTrigger, Tooltip } from "react-bootstrap";
+import {
+  Button,
+  Col,
+  Container,
+  Modal,
+  OverlayTrigger,
+  Row,
+  Tooltip,
+} from "react-bootstrap";
+import { FreeMode, Navigation, Thumbs } from "swiper/modules";
+import { SwiperSlide, Swiper } from "swiper/react";
 import { FaRegEye } from "react-icons/fa";
 import { VscSettings } from "react-icons/vsc";
 import { useState } from "react";
@@ -18,6 +28,8 @@ const CardItem = (props) => {
   const [currentImg, setCurrentImg] = useState("");
 
   const [isChooseColorActive, setIsChooseColorActive] = useState(0);
+  const [thumbsSwiper, setThumbsSwiper] = useState(null);
+  const [mainSwiper, setMainSwiper] = useState(null);
 
   const handleClickCurrentImg = (item) => {
     setCurrentImg(item);
@@ -27,7 +39,17 @@ const CardItem = (props) => {
     <>
       <div className="cardItem">
         <div className="cardItem_wrapper">
-          <div className="thumbnail">
+          <div
+            className="thumbnail"
+            onClick={() => {
+              const currentPath = location.pathname;
+              if (currentPath.includes("/shop")) {
+                navigate("detailproduct"); //neu nhu path hien tai co /shop
+              } else {
+                navigate("/shop/detailproduct"); // nguoc lai
+              }
+            }}
+          >
             <span className="tag">Bán chạy</span>
 
             <Link className="image-wrapper">
@@ -78,19 +100,7 @@ const CardItem = (props) => {
           <div className="info d-flex flex-column">
             <span className="info-vendor">ega</span>
 
-            <span
-              className="info-name"
-              title="Ao tap"
-              // onClick={() => handleClickToDetailPage}
-              onClick={() => {
-                const currentPath = location.pathname;
-                if (currentPath.includes("/shop")) {
-                  navigate("detailproduct"); //neu nhu path hien tai co /shop
-                } else {
-                  navigate("/shop/detailproduct"); // nguoc lai
-                }
-              }}
-            >
+            <span className="info-name" title="Ao tap">
               {data.name}
             </span>
 
@@ -143,19 +153,9 @@ const CardItem = (props) => {
         onHide={handleClose}
         aria-labelledby="contained-modal-title-vcenter"
         centered
+        className="customoffcanvans_quickview"
       >
-        <Modal.Header closeButton>
-          <Modal.Title>Modal heading</Modal.Title>
-        </Modal.Header>
-        <Modal.Body>Woohoo, you are reading this text in a modal!</Modal.Body>
-        <Modal.Footer>
-          <Button variant="secondary" onClick={handleClose}>
-            Close
-          </Button>
-          <Button variant="primary" onClick={handleClose}>
-            Save Changes
-          </Button>
-        </Modal.Footer>
+        <Modal.Body>Quick view item</Modal.Body>
       </Modal>
     </>
   );

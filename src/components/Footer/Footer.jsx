@@ -5,9 +5,8 @@ import { Link } from "react-router-dom";
 import { RiMapPinFill } from "react-icons/ri";
 import { MdOutlinePhoneIphone } from "react-icons/md";
 import { MdOutlineEmail } from "react-icons/md";
-import { MdKeyboardArrowDown } from "react-icons/md";
 import { useState } from "react";
-import { Bounce, toast, ToastContainer } from "react-toastify";
+import { toast, ToastContainer } from "react-toastify";
 
 const Footer = () => {
   const [emailForm, setEmailForm] = useState("");
@@ -91,7 +90,7 @@ const Footer = () => {
                       <Link>Giới thiệu</Link>
                     </li>
                     <li className="menu-item">
-                      <Link>Liên hệ</Link>
+                      <Link to="contact">Liên hệ</Link>
                     </li>
                     <li className="menu-item">
                       <Link>Cửa hàng</Link>
@@ -106,19 +105,19 @@ const Footer = () => {
 
                   <ul className="list_menu">
                     <li className="menu-item">
-                      <Link>Điều khoản dịch vụ</Link>
+                      <Link to="service-conditions">Điều khoản dịch vụ</Link>
                     </li>
 
                     <li className="menu-item">
-                      <Link>Chính sách bảo mật</Link>
+                      <Link to="policy-sercurity">Chính sách bảo mật</Link>
                     </li>
 
                     <li className="menu-item">
-                      <Link>Chính sách đổi trả</Link>
+                      <Link to="policy">Chính sách đổi trả</Link>
                     </li>
 
                     <li className="menu-item">
-                      <Link>Câu hỏi thường gặp</Link>
+                      <Link to="faq">Câu hỏi thường gặp</Link>
                     </li>
                   </ul>
                 </div>

@@ -8,6 +8,9 @@ import Accessory from "./pages/Accessory/Accessory";
 import Blog from "./pages/Blog/Blog";
 import Contact from "./pages/Contact/Contact";
 import Policy from "./pages/Policy/Policy";
+import Conditions from "./pages/Policy/Conditions";
+import Sercurity from "./pages/Policy/Sercurity";
+import Faq from "./pages/Policy/Faq";
 
 function App() {
   return (
@@ -30,6 +33,12 @@ function App() {
             <Route path="contact" element={<Contact />} />
 
             <Route path="policy" element={<Policy />} />
+
+            <Route path="service-conditions" element={<Conditions />} />
+
+            <Route path="policy-sercurity" element={<Sercurity />} />
+
+            <Route path="faq" element={<Faq />} />
           </Route>
         </Routes>
       </BrowserRouter>

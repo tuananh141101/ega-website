@@ -33,6 +33,10 @@ const Home = () => {
   const [isRotated, setIsRotated] = useState(false);
 
   const getProduct = useSelector((state) => state.product);
+  const categoriesImg = useSelector((state) => state.shop.categoriesImg);
+  const policiesList = useSelector((state) => state.shop.policiesList);
+  const feedbackList = useSelector((state) => state.shop.feedbackList);
+  const lookbookList = useSelector((state) => state.shop.lookbookList);
 
   useEffect(() => {
     window.scrollTo(0, 0);
@@ -60,117 +64,6 @@ const Home = () => {
     },
   ];
 
-  const productCategories = [
-    {
-      id: 1,
-      name: "Áo ngực thể thao",
-      total: "12 sản phẩm",
-      imgURL: "../../src/assets/images/productcategories_1.png",
-    },
-    {
-      id: 2,
-      name: "Sản phẩm nổi bật",
-      total: "4 sản phẩm",
-      imgURL: "../../src/assets/images/productcategories_2.png",
-    },
-    {
-      id: 3,
-      name: "Áo khoác thể thao",
-      total: "1 sản phẩm",
-      imgURL: "../../src/assets/images/productcategories_3.png",
-    },
-    {
-      id: 4,
-      name: "Quần legging",
-      total: "10 sản phẩm",
-      imgURL: "../../src/assets/images/productcategories_4.png",
-    },
-    {
-      id: 5,
-      name: "Áo thun thể thao",
-      total: "12 sản phẩm",
-      imgURL: "../../src/assets/images/productcategories_5.png",
-    },
-    {
-      id: 6,
-      name: "Set đồ tập",
-      total: "19 sản phẩm",
-      imgURL: "../../src/assets/images/productcategories_6.png",
-    },
-  ];
-
-  const policies = [
-    {
-      id: 1,
-      name: "Miễn phí vận chuyển trong 3 ngày",
-      title: "Nhận hàng trong 3 ngày",
-      imgURL: "../../src/assets/images/policies_icon_1.png",
-    },
-    {
-      id: 2,
-      name: "Quà tặng hấp dẫn",
-      title: "Nhận khuyễn mãi ưu đãi hot",
-      imgURL: "../../src/assets/images/policies_icon_2.png",
-    },
-    {
-      id: 3,
-      name: "Bảo đảm chất lượng",
-      title: "Sản phẩm đã được kiểm định",
-      imgURL: "../../src/assets/images/policies_icon_3.png",
-    },
-    {
-      id: 4,
-      name: "Hotline: 19001993",
-      title: "Dịch vụ hỗ trợ bạn 24/7",
-      imgURL: "../../src/assets/images/policies_icon_4.png",
-    },
-  ];
-
-  const feedback = [
-    {
-      id: 1,
-      title: "Khách hàng nói gì về chúng tôi",
-      name: "Trần Mai Bích Chi",
-      position: "Giám đốc kinh doanh",
-      img: "../../src/assets/images/feedback_img_1.png",
-      text: "Sản phẩm chất lượng, chất vải mềm mát mặc vào rất thoải mái và ôm sát người giúp khoe được điểm mạnh của tôi. Giá cả hợp lý, giao hàng nhanh chóng. Shipper cũng dễ thương, nhân viên tư vấn thì nhiệt tình. Sẽ ủng hộ shop dài dài. Cảm ơn shop!",
-    },
-    {
-      id: 2,
-      title: "Khách hàng nói gì về chúng tôi",
-      name: "Trần Ngọc Gia Hân",
-      position: "Nhân viên văn phòng",
-      img: "../../src/assets/images/feedback_img_2.jpg",
-      text: "Tôi rất thích kiểu dáng và màu sắc của sản phẩm. Nó rất phù hợp với thể hình của tôi và tạo cảm giác tự tin khi tập luyện. Tôi đã nhận được nhiều lời khen về trang phục của mình.",
-    },
-    {
-      id: 3,
-      title: "Khách hàng nói gì về chúng tôi",
-      name: "Lê Thu Hằng",
-      position: "Sinh viên",
-      img: "../../src/assets/images/feedback_img_3.jpg",
-      text: "Sản phẩm rất vừa vặn và thoải mái. Tôi đã tập luyện trong sản phẩm này trong một giờ đồng hồ mà không thấy bất kỳ rắc rối nào. Điều này giúp tôi tập trung hoàn toàn vào bài tập mà không phải suy nghĩ về việc chỉnh sửa trang phục.",
-    },
-  ];
-
-  const lookbook = [
-    {
-      id: 1,
-      name: "Set đồ tập yoga",
-      imgURL: "../../src/assets/images/lookbook_img_1.png",
-    },
-    {
-      id: 2,
-      name: "Set đồ tập gym",
-      imgURL: "../../src/assets/images/lookbook_img_2.png",
-    },
-    {
-      id: 3,
-      name: "Set đồ tập Aerobic",
-      imgURL: "../../src/assets/images/lookbook_img_3.png",
-    },
-  ];
-
   const video = [
     "../../src/assets/images/mostvideo_img_1.png",
     "../../src/assets/images/mostvideo_img_2.png",
@@ -194,7 +87,7 @@ const Home = () => {
         <Container className="policies_container">
           <Row>
             <Col>
-              {policies.map((item, index) => {
+              {policiesList.map((item, index) => {
                 return (
                   <>
                     <div
@@ -222,7 +115,7 @@ const Home = () => {
         <Container className="productcategories_container">
           <Row>
             <Col>
-              {productCategories.map((item, index) => {
+              {categoriesImg.map((item, index) => {
                 return (
                   <>
                     <div
@@ -578,7 +471,7 @@ const Home = () => {
                 modules={[Autoplay, Pagination, Navigation]}
                 className="mySwiper"
               >
-                {feedback.map((item, index) => {
+                {feedbackList.map((item, index) => {
                   return (
                     <>
                       <SwiperSlide key={index}>
@@ -653,7 +546,7 @@ const Home = () => {
           </div>
 
           <Row>
-            {lookbook.map((item, index) => {
+            {lookbookList.map((item, index) => {
               return (
                 <>
                   <Col
@@ -678,7 +571,7 @@ const Home = () => {
                               <Popover.Body className="d-flex align-items-center custom-popover">
                                 <div className="img">
                                   <img
-                                    src="../../src/assets/images/cart-action-img-1.png"
+                                    src={item.imgToolTip}
                                     alt=""
                                     style={{
                                       width: "43px",
