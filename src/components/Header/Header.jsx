@@ -1,5 +1,5 @@
 import "./Header.scss";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { RiArrowDownSLine } from "react-icons/ri";
 import { RiArrowLeftSLine } from "react-icons/ri";
 import { RiArrowRightSLine } from "react-icons/ri";
@@ -18,7 +18,14 @@ import Offcanvas from "react-bootstrap/Offcanvas";
 import { ReactTyped } from "react-typed";
 
 const Header = () => {
+  const navigate = useNavigate();
   const [showTopHeader, setShowTopHeader] = useState(true);
+  const [showProductMenuMb, setShowProductMenuMb] = useState(false);
+  const [showCollectionMenuMb, setShowCollectionMenuMb] = useState(false);
+  const [showAccessoryMenuMb, setShowAccessoryMenuMb] = useState(false);
+  const [showTrendMenuMb, setShowTrendMenuMb] = useState(false);
+  const [showSaleMenuMb, setShowSaleMenuMb] = useState(false);
+  const [showContactMenuMb, setShowContactMenuMb] = useState(false);
 
   //* Hiển thị offcanvas search
   const [showSeach, setShowSearch] = useState(false);
@@ -29,7 +36,9 @@ const Header = () => {
 
   //* Hiển thị offcanvas menu mobile
   const [showMenuMobile, setShowMenuMobile] = useState(false);
-  const handleCloseMenuMoble = () => setShowMenuMobile(false);
+  const handleCloseMenuMoble = () => {
+    setShowMenuMobile(false);
+  };
   const handleShowMenuMobile = () => setShowMenuMobile(true);
 
   //* Click hiện thị thêm li
@@ -62,7 +71,7 @@ const Header = () => {
             <div className="col d-flex align-items-center justify-content-between">
               <div className="logo d-flex align-items-center">
                 <Link to="/" className="logo-wrapper">
-                  <img src="../../src/assets/images/logosport.png" alt="" />
+                  <img src="/public/assets/images/logosport.png" alt="" />
                 </Link>
               </div>
 
@@ -79,7 +88,7 @@ const Header = () => {
                       <>
                         <li className="list-item product">
                           <Link
-                            to="shop"
+                            to="collections/all"
                             className="d-flex align-items-center underline"
                           >
                             <span>Sản phẩm</span>
@@ -173,7 +182,7 @@ const Header = () => {
                         </li>
                         <li className="list-item collection">
                           <Link
-                            to="shop"
+                            to="collections/all"
                             className="d-flex align-items-center underline"
                           >
                             <span>Bộ sưu tầm</span>
@@ -686,14 +695,220 @@ const Header = () => {
           <div className="menu">
             <nav>
               <ul className="menu-list">
-                <li className="list-item">
-                  <Link
-                    to="shop"
-                    className="d-flex align-items-center justify-content-between"
+                <li className="list-item d-flex align-items-center justify-content-between">
+                  <span>
+                    <Link to="collections/all">Sản phẩm</Link>
+                  </span>
+                  <RiArrowRightSLine
+                    onClick={() => setShowProductMenuMb(true)}
+                  />
+
+                  <div
+                    className="submenu"
+                    style={{
+                      opacity: showProductMenuMb ? "1" : "0",
+                      visibility: showProductMenuMb ? "visible" : "hidden",
+                      zIndex: showProductMenuMb ? "100" : "-10",
+                    }}
                   >
-                    <span>Sản phẩm</span>
-                    <RiArrowRightSLine />
-                  </Link>
+                    <div className="submenu_wrapper d-flex align-items-center flex-column">
+                      <p
+                        className="title d-flex align-items-center"
+                        onClick={() => {
+                          setShowProductMenuMb(false);
+                        }}
+                      >
+                        <RiArrowLeftSLine />
+                        <span>Sản Phẩm</span>
+                      </p>
+
+                      <div className="list">
+                        <ul className="list_submenu d-flex flex-column">
+                          <li className="list_submenu-item d-flex flex-column">
+                            <span>
+                              <strong>Áo</strong>
+                            </span>
+                            <span>Áo Thun</span>
+                            <span>Áo Bra</span>
+                            <span>Áo Croptop</span>
+                            <span>Áo Khoác</span>
+                            <span>Sản phẩm bán chạy khác</span>
+                          </li>
+                          <li className="list_submenu-item d-flex flex-column">
+                            <span>
+                              <strong>Quần</strong>
+                            </span>
+                            <span>Quần Short & Váy</span>
+                            <span>Quần Bó & Legging</span>
+                            <span>Quần Dài</span>
+                            <span>Quần Lót Thể Thao</span>
+                          </li>
+                          <li className="list_submenu-item d-flex flex-column">
+                            <span>
+                              <strong>Giày dép</strong>
+                            </span>
+                            <span>Giày Thể Thao</span>
+                            <span>Giày Đinh</span>
+                            <span>Xăng đan & Dép</span>
+                            <span>Tất</span>
+                            <span>Bảo Vệ Gối</span>
+                          </li>
+                          <li className="list_submenu-item d-flex flex-column">
+                            <span>
+                              <strong>Đồ Bơi</strong>
+                            </span>
+                            <span>Đồ Bơi Liền Mảnh</span>
+                            <span>Bikini</span>
+                            <span>Áo Bơi Chống Nắng</span>
+                            <span>Quần Đi Biển</span>
+                            <span>Wetsuit</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <li className="list-item d-flex align-items-center justify-content-between">
+                  <span>
+                    <Link to="collections/all">Bộ sưu tầm</Link>
+                  </span>
+                  <RiArrowRightSLine
+                    onClick={() => setShowCollectionMenuMb(true)}
+                  />
+
+                  <div
+                    className="submenu"
+                    style={{
+                      opacity: showCollectionMenuMb ? "1" : "0",
+                      visibility: showCollectionMenuMb ? "visible" : "hidden",
+                      zIndex: showCollectionMenuMb ? "100" : "-10",
+                    }}
+                  >
+                    <div className="submenu_wrapper d-flex align-items-center flex-column">
+                      <p
+                        className="title d-flex align-items-center"
+                        onClick={() => {
+                          setShowCollectionMenuMb(false);
+                        }}
+                      >
+                        <RiArrowLeftSLine />
+                        <span>Bộ Sưu Tập</span>
+                      </p>
+
+                      <div className="list">
+                        <ul className="list_submenu d-flex flex-column">
+                          <li className="list_submenu-item d-flex flex-column">
+                            <span>Tập Gym</span>
+                            <span>Tập Yoga</span>
+                            <span>Chạy Bộ</span>
+                            <span>Boxing</span>
+                            <span>Bơi Lội</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <li className="list-item d-flex align-items-center justify-content-between">
+                  <span>
+                    <Link to="accessory">Phụ kiện</Link>
+                  </span>
+                  <RiArrowRightSLine
+                    onClick={() => setShowAccessoryMenuMb(true)}
+                  />
+
+                  <div
+                    className="submenu"
+                    style={{
+                      opacity: showAccessoryMenuMb ? "1" : "0",
+                      visibility: showAccessoryMenuMb ? "visible" : "hidden",
+                      zIndex: showAccessoryMenuMb ? "100" : "-10",
+                    }}
+                  >
+                    <div className="submenu_wrapper d-flex align-items-center flex-column">
+                      <p
+                        className="title d-flex align-items-center"
+                        onClick={() => {
+                          setShowAccessoryMenuMb(false);
+                        }}
+                      >
+                        <RiArrowLeftSLine />
+                        <span>Phụ Kiện</span>
+                      </p>
+
+                      <div className="list">
+                        <ul className="list_submenu d-flex flex-column">
+                          <li className="list_submenu-item d-flex flex-column">
+                            <span>Balo & Túi</span>
+                            <span>Thảm Tập Yoga</span>
+                            <span>Khăn</span>
+                            <span>Găng Tay</span>
+                            <span>Dây Kháng Lực</span>
+                            <span>Băng Bảo Vệ</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <li className="list-item d-flex align-items-center ">
+                  <span>
+                    <Link to="blog">Xu hướng</Link>
+                  </span>
+                </li>
+
+                <li className="list-item d-flex align-items-center justify-content-between">
+                  <span>
+                    <Link to="sale">Khuyễn Mãi</Link>
+                  </span>
+                  <RiArrowRightSLine onClick={() => setShowSaleMenuMb(true)} />
+
+                  <div
+                    className="submenu"
+                    style={{
+                      opacity: showSaleMenuMb ? "1" : "0",
+                      visibility: showSaleMenuMb ? "visible" : "hidden",
+                      zIndex: showSaleMenuMb ? "100" : "-10",
+                    }}
+                  >
+                    <div className="submenu_wrapper d-flex align-items-center flex-column">
+                      <p
+                        className="title d-flex align-items-center"
+                        onClick={() => {
+                          setShowSaleMenuMb(false);
+                        }}
+                      >
+                        <RiArrowLeftSLine />
+                        <span>khuyến Mãi</span>
+                      </p>
+
+                      <div className="list">
+                        <ul className="list_submenu d-flex flex-column">
+                          <li className="list_submenu-item d-flex flex-column">
+                            <span>Landing Page - Flash Sale</span>
+                            <span>Landing Page - Black Friday</span>
+                            <span>Landing Page - Xmas</span>
+                            <span>Landing Page - One Page</span>
+                          </li>
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                </li>
+
+                <li className="list-item d-flex align-items-center justify-content-between">
+                  <span>
+                    <Link to="contact">Liên Hệ</Link>
+                  </span>
+                </li>
+
+                <li className="list-item d-flex align-items-center">
+                  <span>
+                    <Link to="service-conditions">Chính Sách</Link>
+                  </span>
 
                   <div className="submenu">
                     <div className="submenu_wrapper d-flex align-items-center flex-coolumn">
@@ -705,124 +920,10 @@ const Header = () => {
                   </div>
                 </li>
 
-                <li className="list-item">
-                  <Link
-                    to="shop"
-                    className="d-flex align-items-center justify-content-between"
-                  >
-                    <span>Bộ sưu tầm</span>
-                    <RiArrowRightSLine />
-                  </Link>
-
-                  <div className="submenu">
-                    <div className="submenu_wrapper d-flex align-items-center flex-coolumn">
-                      <p className="title d-flex align-items-center">
-                        <RiArrowLeftSLine />
-                        <span>Sản Phẩm</span>
-                      </p>
-                    </div>
-                  </div>
-                </li>
-
-                <li className="list-item">
-                  <Link
-                    to="accessory"
-                    className="d-flex align-items-center justify-content-between"
-                  >
-                    <span>Phụ kiện</span>
-                    <RiArrowRightSLine />
-                  </Link>
-
-                  <div className="submenu">
-                    <div className="submenu_wrapper d-flex align-items-center flex-coolumn">
-                      <p className="title d-flex align-items-center">
-                        <RiArrowLeftSLine />
-                        <span>Sản Phẩm</span>
-                      </p>
-                    </div>
-                  </div>
-                </li>
-
-                <li className="list-item">
-                  <Link
-                    to="blog"
-                    className="d-flex align-items-center justify-content-between"
-                  >
-                    <span>Xu hướng</span>
-                  </Link>
-
-                  <div className="submenu">
-                    <div className="submenu_wrapper d-flex align-items-center flex-coolumn">
-                      <p className="title d-flex align-items-center">
-                        <RiArrowLeftSLine />
-                        <span>Sản Phẩm</span>
-                      </p>
-                    </div>
-                  </div>
-                </li>
-
-                <li className="list-item">
-                  <Link
-                    to="sale"
-                    className="d-flex align-items-center justify-content-between"
-                  >
-                    <span>Khuyến mãi</span>
-                    <RiArrowRightSLine />
-                  </Link>
-
-                  <div className="submenu">
-                    <div className="submenu_wrapper d-flex align-items-center flex-coolumn">
-                      <p className="title d-flex align-items-center">
-                        <RiArrowLeftSLine />
-                        <span>Sản Phẩm</span>
-                      </p>
-                    </div>
-                  </div>
-                </li>
-
-                <li className="list-item">
-                  <Link
-                    to="contact"
-                    className="d-flex align-items-center justify-content-between"
-                  >
-                    <span>Liên hệ</span>
-                  </Link>
-
-                  <div className="submenu">
-                    <div className="submenu_wrapper d-flex align-items-center flex-coolumn">
-                      <p className="title d-flex align-items-center">
-                        <RiArrowLeftSLine />
-                        <span>Sản Phẩm</span>
-                      </p>
-                    </div>
-                  </div>
-                </li>
-
-                <li className="list-item">
-                  <Link
-                    to=""
-                    className="d-flex align-items-center justify-content-between"
-                  >
-                    <span>Chính sách</span>
-                  </Link>
-
-                  <div className="submenu">
-                    <div className="submenu_wrapper d-flex align-items-center flex-coolumn">
-                      <p className="title d-flex align-items-center">
-                        <RiArrowLeftSLine />
-                        <span>Sản Phẩm</span>
-                      </p>
-                    </div>
-                  </div>
-                </li>
-
-                <li className="list-item">
-                  <Link
-                    to="blog"
-                    className="d-flex align-items-center justify-content-between"
-                  >
-                    <span>Tin tức</span>
-                  </Link>
+                <li className="list-item d-flex align-items-center">
+                  <span>
+                    <Link to="blog">Tin tức</Link>
+                  </span>
 
                   <div className="submenu">
                     <div className="submenu_wrapper d-flex align-items-center flex-coolumn">
@@ -837,7 +938,16 @@ const Header = () => {
             </nav>
           </div>
 
-          <div className="footer d-flex justify-content-between">
+          <div
+            className={`footer justify-content-between ${
+              showProductMenuMb ||
+              showCollectionMenuMb ||
+              showAccessoryMenuMb ||
+              showSaleMenuMb
+                ? "d-none"
+                : ""
+            }`}
+          >
             <div className="footer-hotline">
               <Link to="" className="d-flex align-items-center">
                 <span>Gọi điện</span>

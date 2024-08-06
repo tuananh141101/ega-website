@@ -1,24 +1,14 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./CardItem.scss";
-import {
-  Button,
-  Col,
-  Container,
-  Modal,
-  OverlayTrigger,
-  Row,
-  Tooltip,
-} from "react-bootstrap";
-import { FreeMode, Navigation, Thumbs } from "swiper/modules";
-import { SwiperSlide, Swiper } from "swiper/react";
+import { Modal, OverlayTrigger, Tooltip } from "react-bootstrap";
 import { FaRegEye } from "react-icons/fa";
 import { VscSettings } from "react-icons/vsc";
 import { useState } from "react";
 
-const CardItem = (props) => {
+const CardItem = ({ data }) => {
   const navigate = useNavigate();
   const location = useLocation();
-  const { data } = props;
+
   const dataimgList = data.imgList;
   const [show, setShow] = useState(false);
 
@@ -28,28 +18,27 @@ const CardItem = (props) => {
   const [currentImg, setCurrentImg] = useState("");
 
   const [isChooseColorActive, setIsChooseColorActive] = useState(0);
-  const [thumbsSwiper, setThumbsSwiper] = useState(null);
-  const [mainSwiper, setMainSwiper] = useState(null);
 
   const handleClickCurrentImg = (item) => {
     setCurrentImg(item);
+  };
+
+  const hanldeNavigate = () => {
+    const currentPath = location.pathname;
+
+    if (currentPath.includes("/collections/all")) {
+      // Nếu như đang ở pathname "collection/all" thi navigate xoa no di
+      currentPath.replace("/collections/all", "");
+    }
+
+    navigate(`/${data.pathName}`);
   };
 
   return (
     <>
       <div className="cardItem">
         <div className="cardItem_wrapper">
-          <div
-            className="thumbnail"
-            onClick={() => {
-              const currentPath = location.pathname;
-              if (currentPath.includes("/shop")) {
-                navigate("detailproduct"); //neu nhu path hien tai co /shop
-              } else {
-                navigate("/shop/detailproduct"); // nguoc lai
-              }
-            }}
-          >
+          <div className="thumbnail" onClick={hanldeNavigate}>
             <span className="tag">Bán chạy</span>
 
             <Link className="image-wrapper">

@@ -36,6 +36,11 @@ const Contact = () => {
     );
   };
 
+  //* Khi mới vào trang sẽ scroll lên đầu
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
+
   return (
     <>
       <section className="breadCrumb">

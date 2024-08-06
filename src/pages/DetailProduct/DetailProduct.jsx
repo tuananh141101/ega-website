@@ -23,7 +23,7 @@ import { MdLocalShipping } from "react-icons/md";
 import { GiReceiveMoney } from "react-icons/gi";
 import { IoCardOutline } from "react-icons/io5";
 import { FaHeart } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { Couponbanner } from "../../components/Coupon/Couponbanner";
 import Nav from "react-bootstrap/Nav";
@@ -40,9 +40,23 @@ const DetailProduct = () => {
   const [size, setSize] = useState("S");
   const [quality, setQuality] = useState(1);
   const [qualitySecond, setQualitySecond] = useState(1);
-  console.log("check mainSwiper", mainSwiper);
+  const [currentProduct, setCurrentProduct] = useState([]);
 
-  console.log("check activetab", isActiveTabProduct);
+  const params = useParams();
+  const getParams = params.slug;
+  console.log("getParams", getParams);
+
+  useEffect(() => {
+    window.scroll(0, 0);
+    const getCurrentProduct = getProduct.filter(
+      (item) => item.pathName === getParams
+    );
+
+    setCurrentProduct(getCurrentProduct);
+    console.log("getCurrentProduct", getCurrentProduct);
+  }, [params]);
+
+  console.log("check current product", currentProduct);
 
   //* Show Coupon
   const [show, setShow] = useState(false);
@@ -68,11 +82,6 @@ const DetailProduct = () => {
     }
   };
 
-  //* Mới vào trang sẽ mặc định scroll lên dầu
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   return (
     <>
       <section className="breadCrumb">
@@ -81,7 +90,7 @@ const DetailProduct = () => {
             <Col className="d-flex align-items-center">
               <Breadcrumb>
                 <Breadcrumb.Item href="/">Trang chủ</Breadcrumb.Item>
-                <Breadcrumb.Item active>Chi tiết sản phẩm</Breadcrumb.Item>
+                <Breadcrumb.Item active>Chi tiet</Breadcrumb.Item>
               </Breadcrumb>
             </Col>
           </Row>
@@ -150,11 +159,11 @@ const DetailProduct = () => {
             </Col>
 
             <Col sm={12} lg={6} className="detailproduct_info">
-              <div className="heading">Áo tập croptop dây</div>
+              <div className="heading">{getProduct[0].name}</div>
 
               <div className="groupstatus d-flex align-items-center">
                 <span className="brand">
-                  Thương hiệu: <Link>Yinil</Link>
+                  Thương hiệu: <Link>{getProduct[0].brand}</Link>
                 </span>
                 <span className="code">
                   Mã sản phẩm: <Link>Đang cập nhập</Link>
@@ -188,9 +197,9 @@ const DetailProduct = () => {
 
               <div className="pricebox d-flex align-items-start flex-column">
                 <div className="pricebox_header d-flex align-items-center">
-                  <span className="specialprice">290.000đ</span>
+                  <span className="specialprice">{getProduct[0].price}đ</span>
                   <span className="oldprice">
-                    <del>350.000đ</del>
+                    <del> {getProduct[0].comparePrice}đ</del>
                   </span>
                   -18%
                 </div>
@@ -202,17 +211,14 @@ const DetailProduct = () => {
               <div className="promotag d-flex align-items-center">
                 <div className="promotag_first">Bán chạy</div>
                 <div className="promotag_second">
-                  <img
-                    src="../../src/assets/images/promo_tag_hotdeal.png"
-                    alt=""
-                  />
+                  <img src={getProduct[0].hotdeal} alt="" />
                 </div>
               </div>
 
               <div className="concessionary">
                 <div className="concessionary_header d-flex align-items-center">
                   <img
-                    src="../../src/assets/images/icon-product-promotion5404.png"
+                    src="/public/assets/images/icon-product-promotion5404.png"
                     alt=""
                   />
                   <span>Khuyễn mãi - ưu đãi</span>

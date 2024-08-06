@@ -1,0 +1,45 @@
+/*---------------VARIABLES---------------*/
+//*Font-family
+@font-face {
+  font-family: "mulish";
+  src: url("../font/mulish/Mulish-Regular.ttf") format("truetype");
+  font-weight: normal;
+}
+
+//*Font-sizes
+$fontSizeHeading: 20px;
+$fontSizeSubheading: 18px;
+$fontSizeBody: 14px;
+$fontSizeCaption: 12px;
+
+//*Colors
+$primaryColor: #000000;
+$secondaryColor: #ffffff;
+$neutralColor: #888888;
+$bgneutralColor: #f5f5f5;
+
+//*Breakpoints
+$breakpointPhone: 375px;
+$breakpointPhoneLarge: 576px;
+$breakpointTablet: 768px;
+$breakpointTabletLarge: 992px;
+$breakpointDesktop: 1200px;
+$breakpointDesktopLarge: 1400px;
+
+//*FontWeights
+$font-weight-regular: 400; //normal
+$font-weight-medium: 500;
+$font-weight-semi-bold: 600;
+$font-weight-bold: 700;
+$font-weight-extra-bold: 800;
+
+//*Mixins
+@mixin DflexAll($display, $alignitem, $justifycontent) {
+  display: $display;
+  align-items: $alignitem;
+  justify-content: $justifycontent;
+}
+@mixin DflexAlgin($display, $alignitem) {
+  display: $display;
+  align-items: $alignitem;
+}

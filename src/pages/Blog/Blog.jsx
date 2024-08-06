@@ -5,13 +5,18 @@ import "./Blog.scss";
 import { Link } from "react-router-dom";
 import { MdArrowDropDown } from "react-icons/md";
 import { MdArrowDropUp } from "react-icons/md";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 const Blog = () => {
   const [isShowDropdownSP, setIsShowDropdownSP] = useState(false);
   const [isShowDropdownBST, setIsShowDropdownBST] = useState(false);
   const [isShowDropdownPK, setIsShowDropdownPK] = useState(false);
   const [isShowDropdownKM, setIsShowDropdownKM] = useState(false);
+
+  //* Khi mới vào trang scroll lên đầu
+  useEffect(() => {
+    window.scroll(0, 0);
+  }, []);
 
   return (
     <>

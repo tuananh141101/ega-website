@@ -4,7 +4,7 @@ const initialState = {
   listBlog: [
     {
       id: 1,
-      img: "../../src/assets/images/blog_img_1.png",
+      img: "/public/assets/images/blog_img_1.png",
       name: "TẬP GYM LÀ GÌ? CHỌN MẶC QUẦN ÁO GYM ĐÚNG CHUẨN",
       date: "Thứ Ba, 06/06/2023",
       timeRead: "13 phút đọc",
@@ -13,7 +13,7 @@ const initialState = {
     },
     {
       id: 2,
-      img: "../../src/assets/images/blog_img_2.png",
+      img: "/public/assets/images/blog_img_2.png",
       name: "4 CÁCH LỰA ĐỒ THỂ THAO YOGA ĐẸP KHÔNG PHẢI AI CŨNG BIẾT",
       date: "Thứ Ba, 06/06/2023",
       timeRead: "6 phút đọc",
@@ -22,7 +22,7 @@ const initialState = {
     },
     {
       id: 3,
-      img: "../../src/assets/images/blog_img_3.png",
+      img: "/public/assets/images/blog_img_3.png",
       name: "CHỌN ĐỒ TẬP GYM NỮ ĐÚNG CÁCH CHO NGƯỜI MỚI",
       date: "Thứ Ba, 06/06/2023",
       timeRead: "6 phút đọc",
@@ -31,7 +31,7 @@ const initialState = {
     },
     {
       id: 4,
-      img: "../../src/assets/images/blog_img_4.png",
+      img: "/public/assets/images/blog_img_4.png",
       name: "4 CÁCH LỰA ĐỒ THỂ THAO YOGA ĐẸP KHÔNG PHẢI AI CŨNG BIẾT",
       date: "Thứ Ba, 06/06/2023",
       timeRead: "4 phút đọc",
@@ -40,7 +40,7 @@ const initialState = {
     },
     {
       id: 5,
-      img: "../../src/assets/images/blog_img_5.png",
+      img: "/public/assets/images/blog_img_5.png",
       name: "DÁNG NGƯỜI CỦA BẠN MẶC ĐỒ TẬP GYM NHƯ THẾ NÀO LÀ ĐẸP NHẤT?",
       date: "Thứ Ba, 06/06/2023",
       timeRead: "4 phút đọc",

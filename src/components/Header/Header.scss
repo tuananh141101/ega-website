@@ -56,7 +56,7 @@ button {
   left: 0;
   right: 0;
   bottom: 0;
-  z-index: 60;
+  z-index: 999;
   background: $secondaryColor;
 
   &_container {
@@ -975,6 +975,7 @@ button {
     width: 100%;
     padding: 0;
     position: relative;
+    overflow-y: initial;
     .account {
       padding: 10px 15px;
       background-color: $primaryColor;
@@ -1007,18 +1008,18 @@ button {
           .list-item {
             padding: 8px 15px;
             border-bottom: 1px solid $bgneutralColor;
-            a {
-              text-decoration: none;
-              width: 100%;
-              color: $primaryColor;
-              span {
-                text-transform: uppercase;
-              }
 
-              svg {
-                width: 24px;
-                height: 24px;
+            span {
+              a {
+                text-transform: uppercase;
+                color: $primaryColor;
+                text-decoration: none;
               }
+            }
+
+            svg {
+              width: 24px;
+              height: 24px;
             }
 
             .submenu {
@@ -1031,6 +1032,9 @@ button {
               opacity: 0;
               visibility: hidden;
               background-color: $secondaryColor;
+              z-index: 100;
+              overflow-y: auto;
+              padding-bottom: 10px;
               &_wrapper {
                 overflow-y: auto;
                 .title {
@@ -1048,6 +1052,25 @@ button {
                     height: 24px;
                   }
                 }
+
+                .list {
+                  width: 100%;
+                  .list_submenu {
+                    gap: 12px;
+                    margin-bottom: 0;
+                    padding: 0 15px;
+                    &-item {
+                      gap: 4px;
+                      strong {
+                        text-transform: uppercase;
+                        color: $primaryColor;
+                      }
+                      span {
+                        color: #6e6e6e;
+                      }
+                    }
+                  }
+                }
               }
             }
           }
@@ -1062,6 +1085,7 @@ button {
       left: 0;
       width: 100%;
       border-top: 1px solid #d1cdcd;
+      display: flex;
 
       &-hotline,
       &-messenger {

@@ -19,10 +19,10 @@ function App() {
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<Home />} />
-            <Route path="shop" element={<Shop />} />
+            <Route path="collections/all" element={<Shop />} />
 
             {/* Detail Product */}
-            <Route path="shop/detailproduct" element={<DetailProduct />} />
+            <Route path=":slug" element={<DetailProduct />} />
 
             <Route path="accessory" element={<Accessory />} />
 

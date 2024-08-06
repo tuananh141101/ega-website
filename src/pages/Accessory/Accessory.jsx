@@ -4,8 +4,13 @@ import CardItem from "../../components/CardItem/CardItem";
 import CollectionBanner from "../../components/Banner/CollectionBanner";
 import { Couponbanner } from "../../components/Coupon/Couponbanner";
 import Flashsale from "../../components/Flashsale/Flashsale";
+import { useEffect } from "react";
 
 const Accessory = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const productList = [
     {
       id: 1,
