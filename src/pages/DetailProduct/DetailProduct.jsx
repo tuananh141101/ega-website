@@ -34,12 +34,14 @@ const DetailProduct = () => {
 
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
   const [mainSwiper, setMainSwiper] = useState(null);
+
   const [isChooseColorActive, setIsChooseColorActive] = useState(0);
   const [seeMoreDetail, isSeeMoreDetail] = useState(false);
   const [isActiveTabProduct, setIsAcitveTabProduct] = useState(0);
   const [size, setSize] = useState("S");
   const [quality, setQuality] = useState(1);
   const [qualitySecond, setQualitySecond] = useState(1);
+
   const [currentProduct, setCurrentProduct] = useState([]);
 
   const params = useParams();
@@ -54,9 +56,7 @@ const DetailProduct = () => {
 
     setCurrentProduct(getCurrentProduct);
     console.log("getCurrentProduct", getCurrentProduct);
-  }, [params]);
-
-  console.log("check current product", currentProduct);
+  }, [getParams]);
 
   //* Show Coupon
   const [show, setShow] = useState(false);
@@ -90,7 +90,10 @@ const DetailProduct = () => {
             <Col className="d-flex align-items-center">
               <Breadcrumb>
                 <Breadcrumb.Item href="/">Trang chủ</Breadcrumb.Item>
-                <Breadcrumb.Item active>Chi tiet</Breadcrumb.Item>
+                <Breadcrumb.Item active>
+                  {/* {currentProduct[0].name} */}
+                  Chi tiết
+                </Breadcrumb.Item>
               </Breadcrumb>
             </Col>
           </Row>
