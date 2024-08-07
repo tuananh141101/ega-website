@@ -5,9 +5,10 @@ import {
   Offcanvas,
   OverlayTrigger,
   Row,
+  ToastContainer,
   Tooltip,
 } from "react-bootstrap";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import "./DetailProduct.scss";
 import CardItem from "../../components/CardItem/CardItem";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
@@ -27,9 +28,12 @@ import { Link, useParams } from "react-router-dom";
 import { FaArrowLeftLong } from "react-icons/fa6";
 import { Couponbanner } from "../../components/Coupon/Couponbanner";
 import Nav from "react-bootstrap/Nav";
+import { toast } from "react-toastify";
+import { addToFav } from "../../store/slice/favourite";
 
 const DetailProduct = () => {
   //*get data from state
+  const dispatch = useDispatch();
   const getProduct = useSelector((state) => state.product);
 
   const [thumbsSwiper, setThumbsSwiper] = useState(null);
@@ -43,20 +47,21 @@ const DetailProduct = () => {
   const [qualitySecond, setQualitySecond] = useState(1);
 
   const [currentProduct, setCurrentProduct] = useState([]);
-
   const params = useParams();
   const getParams = params.slug;
   console.log("getParams", getParams);
 
   useEffect(() => {
-    window.scroll(0, 0);
-    const getCurrentProduct = getProduct.filter(
-      (item) => item.pathName === getParams
-    );
+    if (getProduct && getProduct.length > 0) {
+      window.scroll(0, 0);
+      const getCurrentProduct = getProduct.filter(
+        (item) => item.pathName === getParams
+      );
 
-    setCurrentProduct(getCurrentProduct);
-    console.log("getCurrentProduct", getCurrentProduct);
-  }, [getParams]);
+      setCurrentProduct(getCurrentProduct);
+      console.log("getCurrentProduct", getCurrentProduct);
+    }
+  }, [getParams, getProduct]);
 
   //* Show Coupon
   const [show, setShow] = useState(false);
@@ -82,6 +87,13 @@ const DetailProduct = () => {
     }
   };
 
+  //* Thêm sản phẩm vào yêu thích
+  const handleAddToFav = () => {
+    dispatch(addToFav(getProduct[0]));
+    toast.success(`Thêm sản phẩm ${getProduct[0].name} vào yêu thích!`);
+    console.log("click add fav");
+  };
+
   return (
     <>
       <section className="breadCrumb">
@@ -91,8 +103,9 @@ const DetailProduct = () => {
               <Breadcrumb>
                 <Breadcrumb.Item href="/">Trang chủ</Breadcrumb.Item>
                 <Breadcrumb.Item active>
-                  {/* {currentProduct[0].name} */}
-                  Chi tiết
+                  {currentProduct[0] && currentProduct[0].length > 0
+                    ? `${currentProduct[0].name}`
+                    : `Chi tiet san pham`}
                 </Breadcrumb.Item>
               </Breadcrumb>
             </Col>
@@ -366,7 +379,10 @@ const DetailProduct = () => {
                 </div>
               </div>
 
-              <div className="addtofav d-flex align-items-center">
+              <div
+                className="addtofav d-flex align-items-center"
+                onClick={handleAddToFav}
+              >
                 <span className="icon-heart">
                   <FaHeart />
                 </span>
@@ -777,6 +793,19 @@ const DetailProduct = () => {
           <Couponbanner />
         </Offcanvas.Body>
       </Offcanvas>
+
+      <ToastContainer
+        position="top-right"
+        autoClose={2000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+      />
     </>
   );
 };

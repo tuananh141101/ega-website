@@ -1,8 +1,10 @@
 import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "./Banner.scss";
+import { useNavigate } from "react-router-dom";
 
 const Banner = (props) => {
+  const navigate = useNavigate();
   const { images } = props;
 
   return (
@@ -25,7 +27,10 @@ const Banner = (props) => {
         {images.map((img, index) => {
           return (
             <>
-              <SwiperSlide key={index}>
+              <SwiperSlide
+                key={index}
+                onClick={() => navigate("collections/all")}
+              >
                 <img src={img.imgURL} alt="image banner" />
               </SwiperSlide>
               ;

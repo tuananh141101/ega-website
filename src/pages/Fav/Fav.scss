@@ -1,0 +1,13 @@
+@import "/src/assets/styles/variables";
+
+.favourite {
+  &_container {
+    .row {
+      .col {
+        .favourite_table {
+          margin: 40px 0;
+        }
+      }
+    }
+  }
+}

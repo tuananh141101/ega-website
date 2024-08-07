@@ -151,7 +151,7 @@ const Home = () => {
                 <span>NEW ARRIVAL</span>
               </Link>
 
-              <Link to="shop" className="seeall">
+              <Link to="collections/all" className="seeall">
                 <span>Xem tất cả</span>
               </Link>
             </div>
@@ -254,7 +254,7 @@ const Home = () => {
 
             <div className="col-12 navtab_btnseemore d-flex align-items-center justify-content-center">
               <button className="d-flex align-items-center justify-content-center">
-                <Link to="" className="d-flex align-items-center">
+                <Link to="sale" className="d-flex align-items-center">
                   <span>Xem tất cả</span>
                   <RiArrowRightSLine />
                 </Link>
@@ -268,7 +268,10 @@ const Home = () => {
         <Container className="secondBanner_container">
           <Row>
             <Col>
-              <Banner images={secondBannerIMG} />
+              <Banner
+                images={secondBannerIMG}
+                onClick={() => navigate("collections/all")}
+              />
             </Col>
           </Row>
         </Container>
@@ -307,14 +310,12 @@ const Home = () => {
                 className="mySwiper"
               >
                 <SwiperSlide>
-                  <img
-                    src="../../src/assets/images/running_img.jpg"
-                    alt=""
-                    onClick={() => navigate("blog")}
-                  />
+                  <img src="../../src/assets/images/running_img.jpg" alt="" />
                   <div className="content">
                     <p>Boxing</p>
-                    <button>Khám phá ngay</button>
+                    <button onClick={() => navigate("blog")}>
+                      Khám phá ngay
+                    </button>
                   </div>
                 </SwiperSlide>
                 <SwiperSlide>
@@ -360,7 +361,7 @@ const Home = () => {
         <img src="../../src/assets/images/banner_3.jpg" alt="third banner" />
         <div className="content d-flex align-items-center flex-column">
           <p>Phụ kiện thể thao</p>
-          <button>Xem Ngay</button>
+          <button onClick={() => navigate("collections/all")}>Xem Ngay</button>
         </div>
       </section>
 
@@ -373,7 +374,7 @@ const Home = () => {
                 <span>Phụ kiện thể thao</span>
               </Link>
 
-              <Link to="shop" className="seeall">
+              <Link to="collections/all" className="seeall">
                 <span>Xem tất cả</span>
               </Link>
             </Col>
@@ -413,10 +414,18 @@ const Home = () => {
                 className="mySwiper"
               >
                 <SwiperSlide>
-                  <img src="../../src/assets/images/banner_4.png" alt="" />
+                  <img
+                    src="../../src/assets/images/banner_4.png"
+                    alt=""
+                    onClick={() => navigate("collections/all")}
+                  />
                 </SwiperSlide>
                 <SwiperSlide>
-                  <img src="../../src/assets/images/banner_5.png" alt="" />
+                  <img
+                    src="../../src/assets/images/banner_5.png"
+                    alt=""
+                    onClick={() => navigate("collections/all")}
+                  />
                 </SwiperSlide>
               </Swiper>
             </div>

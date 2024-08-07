@@ -11,6 +11,7 @@ import Policy from "./pages/Policy/Policy";
 import Conditions from "./pages/Policy/Conditions";
 import Sercurity from "./pages/Policy/Sercurity";
 import Faq from "./pages/Policy/Faq";
+import Fav from "./pages/Fav/Fav";
 
 function App() {
   return (
@@ -39,6 +40,9 @@ function App() {
             <Route path="policy-sercurity" element={<Sercurity />} />
 
             <Route path="faq" element={<Faq />} />
+
+            {/* Fav */}
+            <Route path="favourite" element={<Fav />} />
           </Route>
         </Routes>
       </BrowserRouter>

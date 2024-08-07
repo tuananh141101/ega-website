@@ -16,6 +16,7 @@ import { FaFacebookMessenger } from "react-icons/fa";
 import { useState } from "react";
 import Offcanvas from "react-bootstrap/Offcanvas";
 import { ReactTyped } from "react-typed";
+import { useSelector } from "react-redux";
 
 const Header = () => {
   const navigate = useNavigate();
@@ -23,9 +24,7 @@ const Header = () => {
   const [showProductMenuMb, setShowProductMenuMb] = useState(false);
   const [showCollectionMenuMb, setShowCollectionMenuMb] = useState(false);
   const [showAccessoryMenuMb, setShowAccessoryMenuMb] = useState(false);
-  const [showTrendMenuMb, setShowTrendMenuMb] = useState(false);
   const [showSaleMenuMb, setShowSaleMenuMb] = useState(false);
-  const [showContactMenuMb, setShowContactMenuMb] = useState(false);
 
   //* Hiển thị offcanvas search
   const [showSeach, setShowSearch] = useState(false);
@@ -50,12 +49,16 @@ const Header = () => {
     setShowMoreLi(true);
   };
 
+  //* Lấy số lượng sản phẩm yêu thích
+  const getFavTotal = useSelector((state) => state.favourite.favourite);
+  console.log(getFavTotal);
+
   return (
     <>
       {showTopHeader ? (
         <>
           <div className="topHeader">
-            <p>Frees ship voi don hang tu 500k</p>
+            <p>Free ship với đơn hàng từ 500k</p>
             <button onClick={() => setShowTopHeader(false)}>
               <MdOutlineClose />
             </button>
@@ -388,9 +391,13 @@ const Header = () => {
                   </div>
                 </div>
 
-                <Link to="" className="icon-heart" title="Sản Phẩm Yêu Thích">
+                <Link
+                  to="favourite"
+                  className="icon-heart"
+                  title="Sản Phẩm Yêu Thích"
+                >
                   <FaRegHeart />
-                  <span>0</span>
+                  <span>{getFavTotal.length}</span>
                 </Link>
 
                 <div className="icon-cart">

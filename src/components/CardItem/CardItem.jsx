@@ -1,15 +1,24 @@
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import "./CardItem.scss";
-import { Modal, OverlayTrigger, Tooltip } from "react-bootstrap";
+import {
+  Modal,
+  OverlayTrigger,
+  ToastContainer,
+  Tooltip,
+} from "react-bootstrap";
 import { FaCheck, FaPlus, FaRegEye } from "react-icons/fa";
 import { VscSettings } from "react-icons/vsc";
 import { useState } from "react";
 import { FreeMode, Navigation, Thumbs } from "swiper/modules";
 import { SwiperSlide, Swiper } from "swiper/react";
 import { BsDash } from "react-icons/bs";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../../store/slice/cart";
+import { toast } from "react-toastify";
 
 const CardItem = ({ data }) => {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const location = useLocation();
 
   const dataimgList = data.imgList;
@@ -24,18 +33,17 @@ const CardItem = ({ data }) => {
   const [isChooseColorActive, setIsChooseColorActive] = useState(0);
   const [size, setSize] = useState("S");
   const [quality, setQuality] = useState(1);
+
   const handleClickCurrentImg = (item) => {
     setCurrentImg(item);
   };
 
   const hanldeNavigate = () => {
     const currentPath = location.pathname;
-
     if (currentPath.includes("/collections/all")) {
       // Nếu như đang ở pathname "collection/all" thi navigate xoa no di
       currentPath.replace("/collections/all", "");
     }
-
     navigate(`/${data.pathName}`);
   };
 
@@ -58,6 +66,12 @@ const CardItem = ({ data }) => {
   };
   const handleIncrement = () => {
     setQuality(quality + 1);
+  };
+
+  //* Add to cart
+  const handleAddToCart = () => {
+    console.log("check add click", data);
+    dispatch(addToCart(data));
   };
 
   return (
@@ -104,7 +118,7 @@ const CardItem = ({ data }) => {
                   className="customTooltip"
                   overlay={<Tooltip id="tooltip-top">Xem nhanh</Tooltip>}
                 >
-                  <Link to="">
+                  <Link to="" onClick={handleShow}>
                     <VscSettings />
                   </Link>
                 </OverlayTrigger>
@@ -276,7 +290,6 @@ const CardItem = ({ data }) => {
               <div className="choosesize_list d-flex align-items-center">
                 {dataSizeList && dataSizeList.length > 0 ? (
                   dataSizeList.map((item, index) => {
-                    console.log("check item", item);
                     return (
                       <div
                         className="size d-flex align-items-center justify-content-center"
@@ -328,7 +341,7 @@ const CardItem = ({ data }) => {
                 </div>
 
                 <div className="btn-addtocart d-flex align-items-center justify-content-center">
-                  <span>Thêm vào giỏ hàng</span>
+                  <span onClick={handleAddToCart}>Thêm vào giỏ hàng</span>
                 </div>
               </div>
             </div>
